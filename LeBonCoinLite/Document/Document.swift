@@ -8,10 +8,17 @@
 import Foundation
 
 class Document {
-    private let session: URLSession
+    let session: URLSession
 
-    private class Configuration {
+    class Configuration {
         static let AdsResourceURL: String = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
+        static let CategoriesResourceURL: String = "https://raw.githubusercontent.com/leboncoin/paperclip/master/categories.json"
+    }
+
+    enum FetchingError: Error {
+        case invalidURL
+        case invalidJSON
+        case parsing
     }
 
     init() {

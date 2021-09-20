@@ -15,6 +15,14 @@
 		F16D72FD26F7882100263DB0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D72FC26F7882100263DB0 /* AppCoordinator.swift */; };
 		F16D730226F78DF400263DB0 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730126F78DF400263DB0 /* Document.swift */; };
 		F16D730426F7931600263DB0 /* AdsListTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730326F7931600263DB0 /* AdsListTableTableViewController.swift */; };
+		F16D730726F8AC7000263DB0 /* ClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730626F8AC7000263DB0 /* ClassifiedAd.swift */; };
+		F16D730826F8B9EE00263DB0 /* ClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730626F8AC7000263DB0 /* ClassifiedAd.swift */; };
+		F16D730926F8BB5D00263DB0 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730126F78DF400263DB0 /* Document.swift */; };
+		F16D730B26F8D37D00263DB0 /* Document+ClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730A26F8D37D00263DB0 /* Document+ClassifiedAd.swift */; };
+		F16D730C26F8D37D00263DB0 /* Document+ClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730A26F8D37D00263DB0 /* Document+ClassifiedAd.swift */; };
+		F16D731226F8DB4900263DB0 /* ads.json in Resources */ = {isa = PBXBuildFile; fileRef = F16D731126F8DB4900263DB0 /* ads.json */; };
+		F16D731326F8DB4900263DB0 /* ads.json in Resources */ = {isa = PBXBuildFile; fileRef = F16D731126F8DB4900263DB0 /* ads.json */; };
+		F16D731626F8DBBC00263DB0 /* ModelParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D731526F8DBBC00263DB0 /* ModelParsingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,10 @@
 		F16D72FC26F7882100263DB0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F16D730126F78DF400263DB0 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		F16D730326F7931600263DB0 /* AdsListTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsListTableTableViewController.swift; sourceTree = "<group>"; };
+		F16D730626F8AC7000263DB0 /* ClassifiedAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAd.swift; sourceTree = "<group>"; };
+		F16D730A26F8D37D00263DB0 /* Document+ClassifiedAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document+ClassifiedAd.swift"; sourceTree = "<group>"; };
+		F16D731126F8DB4900263DB0 /* ads.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ads.json; sourceTree = "<group>"; };
+		F16D731526F8DBBC00263DB0 /* ModelParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelParsingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +111,10 @@
 		F16D72CB26F7846000263DB0 /* LeBonCoinLite */ = {
 			isa = PBXGroup;
 			children = (
+				F16D730D26F8D38400263DB0 /* Document */,
+				F16D730526F8ABF500263DB0 /* Model */,
 				F16D730026F78D4B00263DB0 /* UI */,
 				F16D72CC26F7846000263DB0 /* AppDelegate.swift */,
-				F16D730126F78DF400263DB0 /* Document.swift */,
 				F16D72FC26F7882100263DB0 /* AppCoordinator.swift */,
 				F16D72D526F7846300263DB0 /* Assets.xcassets */,
 				F16D72D726F7846300263DB0 /* LaunchScreen.storyboard */,
@@ -114,7 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				F16D72E326F7846300263DB0 /* LeBonCoinLiteTests.swift */,
+				F16D731526F8DBBC00263DB0 /* ModelParsingTests.swift */,
 				F16D72E526F7846300263DB0 /* Info.plist */,
+				F16D731426F8DB6400263DB0 /* Resources */,
 			);
 			path = LeBonCoinLiteTests;
 			sourceTree = "<group>";
@@ -134,6 +149,31 @@
 				F16D730326F7931600263DB0 /* AdsListTableTableViewController.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		F16D730526F8ABF500263DB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F16D730626F8AC7000263DB0 /* ClassifiedAd.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F16D730D26F8D38400263DB0 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				F16D730126F78DF400263DB0 /* Document.swift */,
+				F16D730A26F8D37D00263DB0 /* Document+ClassifiedAd.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		F16D731426F8DB6400263DB0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F16D731126F8DB4900263DB0 /* ads.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +281,7 @@
 			files = (
 				F16D72D926F7846300263DB0 /* LaunchScreen.storyboard in Resources */,
 				F16D72D626F7846300263DB0 /* Assets.xcassets in Resources */,
+				F16D731226F8DB4900263DB0 /* ads.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16D731326F8DB4900263DB0 /* ads.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F16D730226F78DF400263DB0 /* Document.swift in Sources */,
+				F16D730726F8AC7000263DB0 /* ClassifiedAd.swift in Sources */,
+				F16D730B26F8D37D00263DB0 /* Document+ClassifiedAd.swift in Sources */,
 				F16D72FD26F7882100263DB0 /* AppCoordinator.swift in Sources */,
 				F16D72CD26F7846000263DB0 /* AppDelegate.swift in Sources */,
 				F16D730426F7931600263DB0 /* AdsListTableTableViewController.swift in Sources */,
@@ -276,7 +320,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16D730C26F8D37D00263DB0 /* Document+ClassifiedAd.swift in Sources */,
 				F16D72E426F7846300263DB0 /* LeBonCoinLiteTests.swift in Sources */,
+				F16D731626F8DBBC00263DB0 /* ModelParsingTests.swift in Sources */,
+				F16D730826F8B9EE00263DB0 /* ClassifiedAd.swift in Sources */,
+				F16D730926F8BB5D00263DB0 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

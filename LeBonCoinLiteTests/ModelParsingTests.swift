@@ -9,7 +9,7 @@ import XCTest
 
 class ModelParsingTests: XCTestCase {
 
-    func testMapping() {
+    func testAdsMapping() {
         if let path = Bundle(for: type(of: self)).path(forResource: "ads", ofType: "json") {
             do {
                 var ads = [ClassifiedAd]()
@@ -36,6 +36,28 @@ class ModelParsingTests: XCTestCase {
             }
         } else {
             XCTFail("ads.json not found")
+        }
+    }
+
+    func testCategoriesMapping() {
+        if let path = Bundle(for: type(of: self)).path(forResource: "categories", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                guard let categories = try? decoder.decode([Category].self, from: data) else {
+                    XCTFail("Error parsing categories.json")
+                    return
+                }
+                XCTAssertTrue(categories.count == 11)
+                XCTAssertTrue(categories[0].id == 1)
+                XCTAssertTrue(categories[0].name == "Véhicule")
+
+            } catch let error {
+                XCTFail(error.localizedDescription)
+            }
+        } else {
+            XCTFail("categories.json not found")
         }
     }
 

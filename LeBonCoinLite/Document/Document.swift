@@ -17,7 +17,7 @@ class Document {
 
     enum FetchingError: Error {
         case invalidURL
-        case invalidJSON
+        case failedRequest
         case parsing
     }
 

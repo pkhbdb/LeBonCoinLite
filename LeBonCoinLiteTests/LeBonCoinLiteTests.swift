@@ -19,9 +19,24 @@ class LeBonCoinLiteTests: XCTestCase {
     override func tearDown() {}
 
     func testFetchAds() {
-        document.fetchClassifiedAds { ads in
-            XCTAssertTrue(ads.isEmpty)
-            // TODO : - doesn't test (async)
+        document.fetchClassifiedAds { adsFetchingResult in
+            switch adsFetchingResult {
+            case .success(let ads):
+                XCTAssertFalse(ads.isEmpty)
+            case .failure:
+                XCTFail()
+            }
+        }
+    }
+
+    func testFetchCategories() {
+        document.fetchCategories { categoriesFetchingResult in
+            switch categoriesFetchingResult {
+            case .success(let categories):
+                XCTAssertFalse(categories.isEmpty)
+            case .failure:
+                XCTFail()
+            }
         }
     }
 

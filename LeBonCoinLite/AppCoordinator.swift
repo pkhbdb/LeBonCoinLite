@@ -32,5 +32,14 @@ class AppCoordinator: Coordinator {
     func start() {
         self.window.makeKeyAndVisible()
         self.rootNavigationController.isToolbarHidden = false
+
+        document.fetchClassifiedAds { adsFetchingResult in
+            switch adsFetchingResult {
+            case .success(let ads):
+                print(ads)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

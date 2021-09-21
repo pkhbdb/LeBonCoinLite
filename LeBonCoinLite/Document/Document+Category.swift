@@ -1,15 +1,15 @@
 //
-//  Document+ClassifiedAd.swift
+//  Document+Category.swift
 //  LeBonCoinLite
 //
-//  Created by Alexandre Guzu on 20/09/2021.
+//  Created by Alexandre Guzu on 21/09/2021.
 //
 
 import Foundation
 
 extension Document {
-    func fetchClassifiedAds(completion: @escaping (Result<[ClassifiedAd], FetchingError>) -> Void) {
-        guard let url = URL(string: Configuration.AdsResourceURL) else {
+    func fetchCategories(completion: @escaping (Result<[Category], FetchingError>) -> Void) {
+        guard let url = URL(string: Configuration.CategoriesResourceURL) else {
             completion(.failure(.invalidURL))
             return
         }
@@ -21,9 +21,8 @@ extension Document {
 
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            decoder.dateDecodingStrategy = .iso8601
-            if let classifiedAds = try? decoder.decode([ClassifiedAd].self, from: data) {
-                completion(.success(classifiedAds))
+            if let categories = try? decoder.decode([Category].self, from: data) {
+                completion(.success(categories))
             }
             else {
                 completion(.failure(.parsing))

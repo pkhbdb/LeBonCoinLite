@@ -24,22 +24,20 @@ class AppCoordinator: Coordinator {
         self.window = window
         self.document = Document()
         self.rootNavigationController = UINavigationController()
-        self.rootNavigationController.setViewControllers([AdsListTableTableViewController(document: self.document)],
-                                                         animated: false)
+        self.rootNavigationController.navigationBar.prefersLargeTitles = true
         self.window.rootViewController = self.rootNavigationController
     }
 
     func start() {
-        self.window.makeKeyAndVisible()
         self.rootNavigationController.isToolbarHidden = false
 
-        document.fetchClassifiedAds { adsFetchingResult in
-            switch adsFetchingResult {
-            case .success(let ads):
-                print(ads)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        let adsTableViewController = AdsTableViewController(document: document)
+        let adsPresenter = AdsPresenter(coordinator: self,
+                                        viewController: adsTableViewController,
+                                        document: document)
+        adsTableViewController.setPresenter(presenter: adsPresenter)
+        self.rootNavigationController.setViewControllers([adsTableViewController],
+                                                         animated: false)
+        self.window.makeKeyAndVisible()
     }
 }

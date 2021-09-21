@@ -14,7 +14,7 @@
 		F16D72EF26F7846300263DB0 /* LeBonCoinLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D72EE26F7846300263DB0 /* LeBonCoinLiteUITests.swift */; };
 		F16D72FD26F7882100263DB0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D72FC26F7882100263DB0 /* AppCoordinator.swift */; };
 		F16D730226F78DF400263DB0 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730126F78DF400263DB0 /* Document.swift */; };
-		F16D730426F7931600263DB0 /* AdsListTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730326F7931600263DB0 /* AdsListTableTableViewController.swift */; };
+		F16D730426F7931600263DB0 /* AdsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730326F7931600263DB0 /* AdsTableViewController.swift */; };
 		F16D730726F8AC7000263DB0 /* ClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730626F8AC7000263DB0 /* ClassifiedAd.swift */; };
 		F16D730826F8B9EE00263DB0 /* ClassifiedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730626F8AC7000263DB0 /* ClassifiedAd.swift */; };
 		F16D730926F8BB5D00263DB0 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D730126F78DF400263DB0 /* Document.swift */; };
@@ -29,6 +29,7 @@
 		F16D731C26F97FE700263DB0 /* Document+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D731A26F97FE700263DB0 /* Document+Category.swift */; };
 		F16D731E26F9894500263DB0 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = F16D731D26F9894500263DB0 /* categories.json */; };
 		F16D731F26F9894500263DB0 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = F16D731D26F9894500263DB0 /* categories.json */; };
+		F176537726FA4A6A007C3356 /* AdsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537626FA4A6A007C3356 /* AdsPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +63,7 @@
 		F16D72F026F7846300263DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F16D72FC26F7882100263DB0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F16D730126F78DF400263DB0 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		F16D730326F7931600263DB0 /* AdsListTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsListTableTableViewController.swift; sourceTree = "<group>"; };
+		F16D730326F7931600263DB0 /* AdsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableViewController.swift; sourceTree = "<group>"; };
 		F16D730626F8AC7000263DB0 /* ClassifiedAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAd.swift; sourceTree = "<group>"; };
 		F16D730A26F8D37D00263DB0 /* Document+ClassifiedAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document+ClassifiedAd.swift"; sourceTree = "<group>"; };
 		F16D731126F8DB4900263DB0 /* ads.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ads.json; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		F16D731726F97F8500263DB0 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F16D731A26F97FE700263DB0 /* Document+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document+Category.swift"; sourceTree = "<group>"; };
 		F16D731D26F9894500263DB0 /* categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		F176537626FA4A6A007C3356 /* AdsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +157,8 @@
 		F16D730026F78D4B00263DB0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F16D730326F7931600263DB0 /* AdsListTableTableViewController.swift */,
+				F16D730326F7931600263DB0 /* AdsTableViewController.swift */,
+				F176537626FA4A6A007C3356 /* AdsPresenter.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -327,7 +330,8 @@
 				F16D730B26F8D37D00263DB0 /* Document+ClassifiedAd.swift in Sources */,
 				F16D72FD26F7882100263DB0 /* AppCoordinator.swift in Sources */,
 				F16D72CD26F7846000263DB0 /* AppDelegate.swift in Sources */,
-				F16D730426F7931600263DB0 /* AdsListTableTableViewController.swift in Sources */,
+				F16D730426F7931600263DB0 /* AdsTableViewController.swift in Sources */,
+				F176537726FA4A6A007C3356 /* AdsPresenter.swift in Sources */,
 				F16D731826F97F8500263DB0 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

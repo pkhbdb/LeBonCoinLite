@@ -31,4 +31,8 @@ class AdsPresenter {
         }
     }
 
+    func didSelectAd(ad: ClassifiedAd) {
+        coordinator.showAdDetail(ad: ad)
+    }
+
 }

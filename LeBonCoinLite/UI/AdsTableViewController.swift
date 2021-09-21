@@ -31,7 +31,6 @@ class AdsTableViewController: UITableViewController {
     private let cellId = "adCellId"
 
     private var presenter: AdsPresenter?
-    var document: Document
     var rows: [Row] = []
     var state: State = .initial {
         didSet {
@@ -39,7 +38,13 @@ class AdsTableViewController: UITableViewController {
             case .initial:
                 rows = [.noData]
             case .data(ads: let ads):
-                rows = ads.map { return Row.ad(data: $0) }
+                let adsSortedByDate = ads
+                    .sorted(by: { $0.creationDate.compare($1.creationDate) == .orderedDescending })
+                let urgentAds = adsSortedByDate.filter { $0.isUrgent }
+                let normalAds = adsSortedByDate.filter { !$0.isUrgent }
+
+                rows = Array(urgentAds + normalAds)
+                    .map { return Row.ad(data: $0) }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -58,20 +63,19 @@ class AdsTableViewController: UITableViewController {
         }
     }
 
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Annonces"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         presenter?.fetchAds()
-    }
-
-    init(document: Document) {
-        self.document = document
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Table view data source
@@ -90,12 +94,22 @@ class AdsTableViewController: UITableViewController {
         let row = rows[indexPath.row]
         switch row {
         case .ad(data: let ad):
-            cell.textLabel?.text = ad.title
+            cell.textLabel?.text = (ad.isUrgent ? "U " : "") + "\(ad.title)"
         case .noData:
             cell.textLabel?.text = "No data"
         }
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = rows[indexPath.row]
+        switch row {
+        case .ad(data: let ad):
+            presenter?.didSelectAd(ad: ad)
+        case .noData:
+            return
+        }
     }
 
 }

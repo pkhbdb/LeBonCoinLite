@@ -30,6 +30,8 @@
 		F16D731E26F9894500263DB0 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = F16D731D26F9894500263DB0 /* categories.json */; };
 		F16D731F26F9894500263DB0 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = F16D731D26F9894500263DB0 /* categories.json */; };
 		F176537726FA4A6A007C3356 /* AdsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537626FA4A6A007C3356 /* AdsPresenter.swift */; };
+		F176537926FA583D007C3356 /* AdDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537826FA583D007C3356 /* AdDetailViewController.swift */; };
+		F176537B26FA585F007C3356 /* AdDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537A26FA585F007C3356 /* AdDetailPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		F16D731A26F97FE700263DB0 /* Document+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Document+Category.swift"; sourceTree = "<group>"; };
 		F16D731D26F9894500263DB0 /* categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		F176537626FA4A6A007C3356 /* AdsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsPresenter.swift; sourceTree = "<group>"; };
+		F176537826FA583D007C3356 /* AdDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailViewController.swift; sourceTree = "<group>"; };
+		F176537A26FA585F007C3356 /* AdDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 			children = (
 				F16D730326F7931600263DB0 /* AdsTableViewController.swift */,
 				F176537626FA4A6A007C3356 /* AdsPresenter.swift */,
+				F176537826FA583D007C3356 /* AdDetailViewController.swift */,
+				F176537A26FA585F007C3356 /* AdDetailPresenter.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -324,6 +330,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F176537926FA583D007C3356 /* AdDetailViewController.swift in Sources */,
+				F176537B26FA585F007C3356 /* AdDetailPresenter.swift in Sources */,
 				F16D730226F78DF400263DB0 /* Document.swift in Sources */,
 				F16D730726F8AC7000263DB0 /* ClassifiedAd.swift in Sources */,
 				F16D731B26F97FE700263DB0 /* Document+Category.swift in Sources */,

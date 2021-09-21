@@ -31,7 +31,7 @@ class AppCoordinator: Coordinator {
     func start() {
         self.rootNavigationController.isToolbarHidden = false
 
-        let adsTableViewController = AdsTableViewController(document: document)
+        let adsTableViewController = AdsTableViewController()
         let adsPresenter = AdsPresenter(coordinator: self,
                                         viewController: adsTableViewController,
                                         document: document)
@@ -39,5 +39,10 @@ class AppCoordinator: Coordinator {
         self.rootNavigationController.setViewControllers([adsTableViewController],
                                                          animated: false)
         self.window.makeKeyAndVisible()
+    }
+
+    func showAdDetail(ad: ClassifiedAd) {
+        let adDetailViewController = AdDetailViewController(ad: ad)
+        self.rootNavigationController.pushViewController(adDetailViewController, animated: true)
     }
 }

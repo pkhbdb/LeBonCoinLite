@@ -8,8 +8,6 @@
 import Foundation
 
 class Document {
-    let session: URLSession
-
     class Configuration {
         static let AdsResourceURL: String = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
         static let CategoriesResourceURL: String = "https://raw.githubusercontent.com/leboncoin/paperclip/master/categories.json"
@@ -19,9 +17,5 @@ class Document {
         case invalidURL
         case failedRequest
         case parsing
-    }
-
-    init() {
-        session = URLSession(configuration: URLSessionConfiguration.default)
     }
 }

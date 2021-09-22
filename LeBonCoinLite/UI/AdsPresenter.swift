@@ -6,13 +6,15 @@
 //
 
 import Foundation
-import UIKit
 
 class AdsPresenter {
 
     weak var viewController: AdsTableViewController?
     var coordinator: AppCoordinator
     var document: Document
+
+    var allAds = [ClassifiedAd]()
+    var allCategories = [Category]()
 
     init(coordinator: AppCoordinator, viewController: AdsTableViewController, document: Document) {
         self.coordinator = coordinator
@@ -24,6 +26,7 @@ class AdsPresenter {
         document.fetchClassifiedAds { adsFetchingResult in
             switch adsFetchingResult {
             case .success(let ads):
+                self.allAds = ads
                 self.viewController?.setAds(ads: ads)
             case .failure(let error):
                 self.viewController?.showFetchingError(error: error)
@@ -31,8 +34,32 @@ class AdsPresenter {
         }
     }
 
-    func didSelectAd(ad: ClassifiedAd) {
+    func fetchCategories() {
+        document.fetchCategories { categoriesFetchingResult in
+            switch categoriesFetchingResult {
+            case .success(let categories):
+                self.allCategories = categories
+                self.viewController?.displayCategoriesFilter()
+            case .failure(let error):
+                self.viewController?.showFetchingError(error: error)
+            }
+        }
+    }
+
+    func didSelect(ad: ClassifiedAd) {
         coordinator.showAdDetail(ad: ad)
+    }
+
+    func didSelectCategoriesPicker() {
+        coordinator.showCategoryPicker(categories: allCategories)
+    }
+
+    func filter(by category: Category?) {
+        if let category = category {
+            self.viewController?.setAds(ads: allAds.filter { $0.categoryId == category.id })
+        } else {
+            self.viewController?.setAds(ads: allAds)
+        }
     }
 
 }

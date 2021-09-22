@@ -10,6 +10,7 @@ import UIKit
 protocol AdsListProtocol {
     func setPresenter(presenter: AdsPresenter)
     func setAds(ads: [ClassifiedAd])
+    func displayCategoriesFilter()
     func showFetchingError(error: Error)
     func showNoData()
 }
@@ -30,7 +31,7 @@ class AdsTableViewController: UITableViewController {
 
     private let cellId = "adCellId"
 
-    private var presenter: AdsPresenter?
+    var presenter: AdsPresenter?
     var rows: [Row] = []
     var state: State = .initial {
         didSet {
@@ -76,6 +77,7 @@ class AdsTableViewController: UITableViewController {
         self.title = "Annonces"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         presenter?.fetchAds()
+        presenter?.fetchCategories()
     }
 
     // MARK: - Table view data source
@@ -106,15 +108,31 @@ class AdsTableViewController: UITableViewController {
         let row = rows[indexPath.row]
         switch row {
         case .ad(data: let ad):
-            presenter?.didSelectAd(ad: ad)
+            presenter?.didSelect(ad: ad)
         case .noData:
             return
         }
     }
 
+    @objc
+    func didSelectCategoriesPicker() {
+        presenter?.didSelectCategoriesPicker()
+    }
+
 }
 
 extension AdsTableViewController: AdsListProtocol {
+    func displayCategoriesFilter() {
+        let flexibleSpaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let categoriesItem = UIBarButtonItem(title: "Categories",
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(didSelectCategoriesPicker))
+        DispatchQueue.main.async {
+            self.setToolbarItems([flexibleSpaceItem, categoriesItem], animated: true)
+        }
+    }
+
     func setPresenter(presenter: AdsPresenter) {
         self.presenter = presenter
     }

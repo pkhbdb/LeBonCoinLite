@@ -13,7 +13,7 @@ extension Document {
             completion(.failure(.invalidURL))
             return
         }
-        let task = session.dataTask(with: url) { (rawData, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { (rawData, response, error) in
             guard error == nil, let data = rawData else {
                 completion(.failure(.failedRequest))
                 return

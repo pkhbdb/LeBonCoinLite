@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class AdDetailPresenter {
+
+    weak var viewController: AdDetailViewController?
+    var coordinator: AppCoordinator
+    var document: Document
+
+    init(coordinator: AppCoordinator, viewController: AdDetailViewController, document: Document) {
+        self.coordinator = coordinator
+        self.viewController = viewController
+        self.document = document
+    }
+
+
+
+}

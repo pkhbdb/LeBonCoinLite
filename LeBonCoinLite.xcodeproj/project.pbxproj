@@ -32,6 +32,8 @@
 		F176537726FA4A6A007C3356 /* AdsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537626FA4A6A007C3356 /* AdsPresenter.swift */; };
 		F176537926FA583D007C3356 /* AdDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537826FA583D007C3356 /* AdDetailViewController.swift */; };
 		F176537B26FA585F007C3356 /* AdDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537A26FA585F007C3356 /* AdDetailPresenter.swift */; };
+		F176537D26FB1FE9007C3356 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537C26FB1FE9007C3356 /* CategoriesTableViewController.swift */; };
+		F176537F26FB2094007C3356 /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537E26FB2094007C3356 /* CategoriesPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		F176537626FA4A6A007C3356 /* AdsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsPresenter.swift; sourceTree = "<group>"; };
 		F176537826FA583D007C3356 /* AdDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailViewController.swift; sourceTree = "<group>"; };
 		F176537A26FA585F007C3356 /* AdDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailPresenter.swift; sourceTree = "<group>"; };
+		F176537C26FB1FE9007C3356 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
+		F176537E26FB2094007C3356 /* CategoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 				F176537626FA4A6A007C3356 /* AdsPresenter.swift */,
 				F176537826FA583D007C3356 /* AdDetailViewController.swift */,
 				F176537A26FA585F007C3356 /* AdDetailPresenter.swift */,
+				F176537C26FB1FE9007C3356 /* CategoriesTableViewController.swift */,
+				F176537E26FB2094007C3356 /* CategoriesPresenter.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -333,12 +339,14 @@
 				F176537926FA583D007C3356 /* AdDetailViewController.swift in Sources */,
 				F176537B26FA585F007C3356 /* AdDetailPresenter.swift in Sources */,
 				F16D730226F78DF400263DB0 /* Document.swift in Sources */,
+				F176537D26FB1FE9007C3356 /* CategoriesTableViewController.swift in Sources */,
 				F16D730726F8AC7000263DB0 /* ClassifiedAd.swift in Sources */,
 				F16D731B26F97FE700263DB0 /* Document+Category.swift in Sources */,
 				F16D730B26F8D37D00263DB0 /* Document+ClassifiedAd.swift in Sources */,
 				F16D72FD26F7882100263DB0 /* AppCoordinator.swift in Sources */,
 				F16D72CD26F7846000263DB0 /* AppDelegate.swift in Sources */,
 				F16D730426F7931600263DB0 /* AdsTableViewController.swift in Sources */,
+				F176537F26FB2094007C3356 /* CategoriesPresenter.swift in Sources */,
 				F176537726FA4A6A007C3356 /* AdsPresenter.swift in Sources */,
 				F16D731826F97F8500263DB0 /* Category.swift in Sources */,
 			);

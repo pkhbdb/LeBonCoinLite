@@ -45,4 +45,24 @@ class AppCoordinator: Coordinator {
         let adDetailViewController = AdDetailViewController(ad: ad)
         self.rootNavigationController.pushViewController(adDetailViewController, animated: true)
     }
+
+    func showCategoryPicker(categories: [Category]) {
+        let categoriesTableViewController = CategoriesTableViewController(categories: categories)
+        let presenter = CategoriesPresenter(coordinator: self,
+                                            viewController: categoriesTableViewController,
+                                            document: document)
+        categoriesTableViewController.setPresenter(presenter: presenter)
+        self.rootNavigationController.present(categoriesTableViewController,
+                                              animated: true,
+                                              completion: nil)
+    }
+
+    func filterByCategory(category: Category?) {
+        guard let adsTVC = self.rootNavigationController.viewControllers
+            .first(where: { $0.isKind(of: AdsTableViewController.self) }) as? AdsTableViewController else {
+            return
+        }
+
+        adsTVC.presenter?.filter(by: category)
+    }
 }

@@ -47,12 +47,14 @@ class AppCoordinator: Coordinator {
     }
 
     func showCategoryPicker(categories: [Category]) {
+        let navigationController = UINavigationController()
         let categoriesTableViewController = CategoriesTableViewController(categories: categories)
         let presenter = CategoriesPresenter(coordinator: self,
                                             viewController: categoriesTableViewController,
                                             document: document)
         categoriesTableViewController.setPresenter(presenter: presenter)
-        self.rootNavigationController.present(categoriesTableViewController,
+        navigationController.setViewControllers([categoriesTableViewController], animated: true)
+        self.rootNavigationController.present(navigationController,
                                               animated: true,
                                               completion: nil)
     }

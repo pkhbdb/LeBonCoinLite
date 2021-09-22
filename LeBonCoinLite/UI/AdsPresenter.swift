@@ -60,6 +60,7 @@ class AdsPresenter {
         } else {
             self.viewController?.setAds(ads: allAds)
         }
+        self.viewController?.displayCategoriesFilter(category: category)
     }
 
 }

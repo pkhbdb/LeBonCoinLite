@@ -9,7 +9,7 @@ import UIKit
 
 class CategoriesTableViewController: UITableViewController {
 
-    let categories: [Category]
+    var categories: [Category?]
 
     private var presenter: CategoriesPresenter?
 
@@ -17,6 +17,7 @@ class CategoriesTableViewController: UITableViewController {
 
     init(categories: [Category]) {
         self.categories = categories
+        self.categories.insert(nil, at: 0)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -26,7 +27,17 @@ class CategoriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Catégories"
+        self.navigationItem.setRightBarButtonItems(
+            [UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSelf))],
+            animated: true
+        )
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+
+    @objc
+    private func dismissSelf() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -42,7 +53,10 @@ class CategoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let category = categories[indexPath.row]
-        cell.textLabel?.text = category.name
+        let rowTitle: String = {
+            if let category = category { return category.name } else { return "Toutes" }
+        }()
+        cell.textLabel?.text = rowTitle
         return cell
     }
 

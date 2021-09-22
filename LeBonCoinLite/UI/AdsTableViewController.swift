@@ -7,14 +7,6 @@
 
 import UIKit
 
-protocol AdsListProtocol {
-    func setPresenter(presenter: AdsPresenter)
-    func setAds(ads: [ClassifiedAd])
-    func displayCategoriesFilter()
-    func showFetchingError(error: Error)
-    func showNoData()
-}
-
 class AdsTableViewController: UITableViewController {
 
     enum State {
@@ -121,11 +113,14 @@ class AdsTableViewController: UITableViewController {
 
 }
 
-extension AdsTableViewController: AdsListProtocol {
-    func displayCategoriesFilter() {
+extension AdsTableViewController {
+    func displayCategoriesFilter(category: Category? = nil) {
         let flexibleSpaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let categoriesItem = UIBarButtonItem(title: "Categories",
-                                             style: .plain,
+        let categoryTitle: String = {
+            if let category = category { return category.name } else { return "Categories" }
+        }()
+        let categoriesItem = UIBarButtonItem(title: categoryTitle,
+                                             style: category == nil ? .plain : .done,
                                              target: self,
                                              action: #selector(didSelectCategoriesPicker))
         DispatchQueue.main.async {

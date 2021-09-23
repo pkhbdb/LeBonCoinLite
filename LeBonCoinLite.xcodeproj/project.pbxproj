@@ -34,6 +34,11 @@
 		F176537B26FA585F007C3356 /* AdDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537A26FA585F007C3356 /* AdDetailPresenter.swift */; };
 		F176537D26FB1FE9007C3356 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537C26FB1FE9007C3356 /* CategoriesTableViewController.swift */; };
 		F176537F26FB2094007C3356 /* CategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176537E26FB2094007C3356 /* CategoriesPresenter.swift */; };
+		F176538126FB7A01007C3356 /* AdListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538026FB7A01007C3356 /* AdListCell.swift */; };
+		F176538426FB9295007C3356 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538326FB9295007C3356 /* UIColor+Extension.swift */; };
+		F176538626FC86D5007C3356 /* Persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538526FC86D4007C3356 /* Persister.swift */; };
+		F176538826FCCB96007C3356 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538726FCCB96007C3356 /* Double+Extension.swift */; };
+		F176538A26FCE130007C3356 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538926FCE130007C3356 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +85,11 @@
 		F176537A26FA585F007C3356 /* AdDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdDetailPresenter.swift; sourceTree = "<group>"; };
 		F176537C26FB1FE9007C3356 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		F176537E26FB2094007C3356 /* CategoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPresenter.swift; sourceTree = "<group>"; };
+		F176538026FB7A01007C3356 /* AdListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdListCell.swift; path = Cell/AdListCell.swift; sourceTree = "<group>"; };
+		F176538326FB9295007C3356 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		F176538526FC86D4007C3356 /* Persister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persister.swift; sourceTree = "<group>"; };
+		F176538726FCCB96007C3356 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		F176538926FCE130007C3356 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				F16D72CB26F7846000263DB0 /* LeBonCoinLite */,
-				F16D72E226F7846300263DB0 /* LeBonCoinLiteTests */,
 				F16D72ED26F7846300263DB0 /* LeBonCoinLiteUITests */,
 				F16D72CA26F7846000263DB0 /* Products */,
 			);
@@ -135,6 +144,10 @@
 				F16D730026F78D4B00263DB0 /* UI */,
 				F16D72CC26F7846000263DB0 /* AppDelegate.swift */,
 				F16D72FC26F7882100263DB0 /* AppCoordinator.swift */,
+				F176538726FCCB96007C3356 /* Double+Extension.swift */,
+				F176538326FB9295007C3356 /* UIColor+Extension.swift */,
+				F176538926FCE130007C3356 /* ImageCache.swift */,
+				F16D72E226F7846300263DB0 /* LeBonCoinLiteTests */,
 				F16D72D526F7846300263DB0 /* Assets.xcassets */,
 				F16D72D726F7846300263DB0 /* LaunchScreen.storyboard */,
 				F16D72DA26F7846300263DB0 /* Info.plist */,
@@ -165,6 +178,7 @@
 		F16D730026F78D4B00263DB0 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F176538026FB7A01007C3356 /* AdListCell.swift */,
 				F16D730326F7931600263DB0 /* AdsTableViewController.swift */,
 				F176537626FA4A6A007C3356 /* AdsPresenter.swift */,
 				F176537826FA583D007C3356 /* AdDetailViewController.swift */,
@@ -190,6 +204,7 @@
 				F16D730126F78DF400263DB0 /* Document.swift */,
 				F16D730A26F8D37D00263DB0 /* Document+ClassifiedAd.swift */,
 				F16D731A26F97FE700263DB0 /* Document+Category.swift */,
+				F176538526FC86D4007C3356 /* Persister.swift */,
 			);
 			path = Document;
 			sourceTree = "<group>";
@@ -340,12 +355,17 @@
 				F176537B26FA585F007C3356 /* AdDetailPresenter.swift in Sources */,
 				F16D730226F78DF400263DB0 /* Document.swift in Sources */,
 				F176537D26FB1FE9007C3356 /* CategoriesTableViewController.swift in Sources */,
+				F176538826FCCB96007C3356 /* Double+Extension.swift in Sources */,
 				F16D730726F8AC7000263DB0 /* ClassifiedAd.swift in Sources */,
 				F16D731B26F97FE700263DB0 /* Document+Category.swift in Sources */,
 				F16D730B26F8D37D00263DB0 /* Document+ClassifiedAd.swift in Sources */,
 				F16D72FD26F7882100263DB0 /* AppCoordinator.swift in Sources */,
 				F16D72CD26F7846000263DB0 /* AppDelegate.swift in Sources */,
+				F176538426FB9295007C3356 /* UIColor+Extension.swift in Sources */,
 				F16D730426F7931600263DB0 /* AdsTableViewController.swift in Sources */,
+				F176538A26FCE130007C3356 /* ImageCache.swift in Sources */,
+				F176538626FC86D5007C3356 /* Persister.swift in Sources */,
+				F176538126FB7A01007C3356 /* AdListCell.swift in Sources */,
 				F176537F26FB2094007C3356 /* CategoriesPresenter.swift in Sources */,
 				F176537726FA4A6A007C3356 /* AdsPresenter.swift in Sources */,
 				F16D731826F97F8500263DB0 /* Category.swift in Sources */,

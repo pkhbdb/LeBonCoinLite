@@ -22,6 +22,7 @@ extension Document {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             if let categories = try? decoder.decode([Category].self, from: data) {
+                self.persister.persist(categories: categories)
                 completion(.success(categories))
             }
             else {

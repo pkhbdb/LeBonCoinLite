@@ -23,6 +23,7 @@ extension Document {
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             decoder.dateDecodingStrategy = .iso8601
             if let classifiedAds = try? decoder.decode([ClassifiedAd].self, from: data) {
+                self.persister.persist(ads: classifiedAds)
                 completion(.success(classifiedAds))
             }
             else {

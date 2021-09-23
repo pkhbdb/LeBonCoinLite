@@ -8,6 +8,12 @@
 import Foundation
 
 class Document {
+    var persister: Persister
+
+    init() {
+        self.persister = Persister()
+    }
+
     class Configuration {
         static let AdsResourceURL: String = "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json"
         static let CategoriesResourceURL: String = "https://raw.githubusercontent.com/leboncoin/paperclip/master/categories.json"

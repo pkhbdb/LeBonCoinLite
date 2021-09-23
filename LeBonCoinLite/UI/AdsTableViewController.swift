@@ -11,13 +11,13 @@ class AdsTableViewController: UITableViewController {
 
     enum State {
         case initial
-        case data(ads: [ClassifiedAd])
+        case data(ads: [ClassifiedAd], categories: [Category])
         case noData
         case error(error: Error)
     }
 
     enum Row {
-        case ad(data: ClassifiedAd)
+        case ad(data: ClassifiedAd, category: Category?)
         case noData
     }
 
@@ -30,16 +30,21 @@ class AdsTableViewController: UITableViewController {
             switch state {
             case .initial:
                 rows = [.noData]
-            case .data(ads: let ads):
+            case .data(ads: let ads, categories: let cats):
                 let adsSortedByDate = ads
                     .sorted(by: { $0.creationDate.compare($1.creationDate) == .orderedDescending })
                 let urgentAds = adsSortedByDate.filter { $0.isUrgent }
                 let normalAds = adsSortedByDate.filter { !$0.isUrgent }
 
                 rows = Array(urgentAds + normalAds)
-                    .map { return Row.ad(data: $0) }
+                    .map {
+                        let categoryId = $0.categoryId
+                        let category = cats.first(where: { $0.id == categoryId })
+                        return Row.ad(data: $0, category: category)
+                    }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
                 }
             case .noData:
                 rows = [.noData]
@@ -67,9 +72,8 @@ class AdsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Annonces"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        presenter?.fetchAds()
-        presenter?.fetchCategories()
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.register(AdListCell.self, forCellReuseIdentifier: cellId)
     }
 
     // MARK: - Table view data source
@@ -83,23 +87,38 @@ class AdsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? AdListCell else {
+            return UITableViewCell()
+        }
 
         let row = rows[indexPath.row]
         switch row {
-        case .ad(data: let ad):
-            cell.textLabel?.text = (ad.isUrgent ? "U " : "") + "\(ad.title)"
+        case .ad(data: let ad, category: let category):
+            cell.titleLabel.text = ad.title
+            cell.priceLabel.text = ad.price.formatToPrice()
+            cell.categoryLabel.text = category?.name ?? ""
+            cell.urgentLabel.isHidden = !ad.isUrgent
+            cell.urgentBackground.isHidden = !ad.isUrgent
+            if let urlString = ad.imagesUrl.small, let url = URL(string: urlString) {
+                ImageCache.publicCache.load(url: url as NSURL, item: ad) { (fetchedItem, image) in
+                    cell.adImageView.image = image
+                }
+            }
         case .noData:
-            cell.textLabel?.text = "No data"
+            cell.titleLabel.text = "Aucune annonce n'a encore été postée"
         }
 
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 230
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = rows[indexPath.row]
         switch row {
-        case .ad(data: let ad):
+        case .ad(data: let ad, category: _):
             presenter?.didSelect(ad: ad)
         case .noData:
             return
@@ -132,8 +151,8 @@ extension AdsTableViewController {
         self.presenter = presenter
     }
 
-    func setAds(ads: [ClassifiedAd]) {
-        self.state = .data(ads: ads)
+    func setAdsData(ads: [ClassifiedAd], categories: [Category]) {
+        self.state = .data(ads: ads, categories: categories)
     }
 
     func showFetchingError(error: Error) {

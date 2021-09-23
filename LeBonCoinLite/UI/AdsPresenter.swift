@@ -20,31 +20,65 @@ class AdsPresenter {
         self.coordinator = coordinator
         self.viewController = viewController
         self.document = document
+
+        fetchData()
     }
 
-    func fetchAds() {
-        document.fetchClassifiedAds { adsFetchingResult in
-            switch adsFetchingResult {
-            case .success(let ads):
-                self.allAds = ads
-                self.viewController?.setAds(ads: ads)
-            case .failure(let error):
-                self.viewController?.showFetchingError(error: error)
+    private func fetchData() {
+        let dispatchQueue = DispatchQueue(label: "adsFetchingSerialQueue")
+        let group = DispatchGroup()
+        group.enter()
+        dispatchQueue.async {
+            self.document.fetchClassifiedAds { adsFetchingResult in
+                switch adsFetchingResult {
+                case .success(let ads):
+                    self.allAds = ads
+                case .failure(let error):
+                    self.viewController?.showFetchingError(error: error)
+                }
+                group.leave()
+            }
+        }
+        dispatchQueue.async {
+            group.wait()
+            group.enter()
+            self.document.fetchCategories { categoriesFetchingResult in
+                switch categoriesFetchingResult {
+                case .success(let categories):
+                    self.allCategories = categories
+                    self.viewController?.setAdsData(ads: self.allAds, categories: categories)
+                    self.viewController?.displayCategoriesFilter()
+                case .failure(let error):
+                    self.viewController?.showFetchingError(error: error)
+                }
+                group.leave()
             }
         }
     }
 
-    func fetchCategories() {
-        document.fetchCategories { categoriesFetchingResult in
-            switch categoriesFetchingResult {
-            case .success(let categories):
-                self.allCategories = categories
-                self.viewController?.displayCategoriesFilter()
-            case .failure(let error):
-                self.viewController?.showFetchingError(error: error)
-            }
-        }
-    }
+//    func fetchAds() {
+//        document.fetchClassifiedAds { adsFetchingResult in
+//            switch adsFetchingResult {
+//            case .success(let ads):
+//                self.allAds = ads
+//                self.viewController?.setAds(ads: ads)
+//            case .failure(let error):
+//                self.viewController?.showFetchingError(error: error)
+//            }
+//        }
+//    }
+//
+//    func fetchCategories() {
+//        document.fetchCategories { categoriesFetchingResult in
+//            switch categoriesFetchingResult {
+//            case .success(let categories):
+//                self.allCategories = categories
+//                self.viewController?.displayCategoriesFilter()
+//            case .failure(let error):
+//                self.viewController?.showFetchingError(error: error)
+//            }
+//        }
+//    }
 
     func didSelect(ad: ClassifiedAd) {
         coordinator.showAdDetail(ad: ad)
@@ -56,9 +90,11 @@ class AdsPresenter {
 
     func filter(by category: Category?) {
         if let category = category {
-            self.viewController?.setAds(ads: allAds.filter { $0.categoryId == category.id })
+            self.viewController?.setAdsData(ads: allAds.filter { $0.categoryId == category.id },
+                                            categories: allCategories)
         } else {
-            self.viewController?.setAds(ads: allAds)
+            self.viewController?.setAdsData(ads: allAds,
+                                            categories: allCategories)
         }
         self.viewController?.displayCategoriesFilter(category: category)
     }

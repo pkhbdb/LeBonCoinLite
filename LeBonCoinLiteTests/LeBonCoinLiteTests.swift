@@ -19,25 +19,39 @@ class LeBonCoinLiteTests: XCTestCase {
     override func tearDown() {}
 
     func testFetchAds() {
+        let expectation = self.expectation(description: "Scaling")
+        var ads = [ClassifiedAd]()
+
         document.fetchClassifiedAds { adsFetchingResult in
             switch adsFetchingResult {
-            case .success(let ads):
-                XCTAssertFalse(ads.isEmpty)
+            case .success(let fetchedAds):
+                ads = fetchedAds
             case .failure:
-                XCTFail()
+                ads = []
             }
+            expectation.fulfill()
         }
+        waitForExpectations(timeout: 5, handler: nil)
+
+        XCTAssertFalse(ads.isEmpty)
     }
 
     func testFetchCategories() {
+        let expectation = self.expectation(description: "Scaling")
+        var categories = [Category]()
+
         document.fetchCategories { categoriesFetchingResult in
             switch categoriesFetchingResult {
-            case .success(let categories):
-                XCTAssertFalse(categories.isEmpty)
+            case .success(let fetchedCategories):
+                categories = fetchedCategories
             case .failure:
-                XCTFail()
+                categories = []
             }
+            expectation.fulfill()
         }
+        waitForExpectations(timeout: 5, handler: nil)
+
+        XCTAssertFalse(categories.isEmpty)
     }
 
 }

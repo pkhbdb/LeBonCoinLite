@@ -39,6 +39,7 @@
 		F176538626FC86D5007C3356 /* Persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538526FC86D4007C3356 /* Persister.swift */; };
 		F176538826FCCB96007C3356 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538726FCCB96007C3356 /* Double+Extension.swift */; };
 		F176538A26FCE130007C3356 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538926FCE130007C3356 /* ImageCache.swift */; };
+		F196B75E26FDCB8A005BAEF6 /* Persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538526FC86D4007C3356 /* Persister.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F16D72CB26F7846000263DB0 /* LeBonCoinLite */,
+				F16D72E226F7846300263DB0 /* LeBonCoinLiteTests */,
 				F16D72ED26F7846300263DB0 /* LeBonCoinLiteUITests */,
 				F16D72CA26F7846000263DB0 /* Products */,
 			);
@@ -147,7 +149,6 @@
 				F176538726FCCB96007C3356 /* Double+Extension.swift */,
 				F176538326FB9295007C3356 /* UIColor+Extension.swift */,
 				F176538926FCE130007C3356 /* ImageCache.swift */,
-				F16D72E226F7846300263DB0 /* LeBonCoinLiteTests */,
 				F16D72D526F7846300263DB0 /* Assets.xcassets */,
 				F16D72D726F7846300263DB0 /* LaunchScreen.storyboard */,
 				F16D72DA26F7846300263DB0 /* Info.plist */,
@@ -379,6 +380,7 @@
 				F16D730C26F8D37D00263DB0 /* Document+ClassifiedAd.swift in Sources */,
 				F16D72E426F7846300263DB0 /* LeBonCoinLiteTests.swift in Sources */,
 				F16D731626F8DBBC00263DB0 /* ModelParsingTests.swift in Sources */,
+				F196B75E26FDCB8A005BAEF6 /* Persister.swift in Sources */,
 				F16D730826F8B9EE00263DB0 /* ClassifiedAd.swift in Sources */,
 				F16D730926F8BB5D00263DB0 /* Document.swift in Sources */,
 				F16D731C26F97FE700263DB0 /* Document+Category.swift in Sources */,

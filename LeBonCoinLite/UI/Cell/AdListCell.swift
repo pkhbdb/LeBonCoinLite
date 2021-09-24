@@ -14,7 +14,7 @@ class AdListCell: UITableViewCell {
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .imagePlaceholder
+        imageView.backgroundColor = UIColor(named: "imagePlaceholder")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

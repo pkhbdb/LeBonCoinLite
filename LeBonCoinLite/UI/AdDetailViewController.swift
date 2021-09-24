@@ -19,7 +19,7 @@ class AdDetailViewController: UIViewController {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .imagePlaceholder
+        imageView.backgroundColor = UIColor(named: "imagePlaceholder")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

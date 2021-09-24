@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  LeBonCoinLite
+
+  Created by Alexandre Guzu on 24/09/2021.
+  
+*/
+
+"ads" = "Annonces";
+"categories" = "Catégories";
+"all" = "Toutes";
+"urgent" = "Urgent";
+"noAd" = "Aucune annonce n'a encore été postée";
+
+// Errors
+"error" = "Erreur";
+"error.fetching" = "Impossible d'afficher les nouvelles annonces pour le moment, veuillez réessayer plus tard";

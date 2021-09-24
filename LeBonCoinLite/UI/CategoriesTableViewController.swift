@@ -27,7 +27,7 @@ class CategoriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Catégories"
+        self.title = NSLocalizedString("categories", comment: "")
         self.navigationItem.setRightBarButtonItems(
             [UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissSelf))],
             animated: true
@@ -54,7 +54,7 @@ class CategoriesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         let category = categories[indexPath.row]
         let rowTitle: String = {
-            if let category = category { return category.name } else { return "Toutes" }
+            if let category = category { return category.name } else { return NSLocalizedString("all", comment: "") }
         }()
         cell.textLabel?.text = rowTitle
         return cell

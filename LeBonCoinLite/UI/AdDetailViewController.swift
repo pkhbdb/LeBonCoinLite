@@ -83,7 +83,7 @@ class AdDetailViewController: UIViewController {
 
     let urgentLabel: UILabel = {
         let label = UILabel()
-        label.text = "URGENT"
+        label.text = NSLocalizedString("urgent", comment: "").uppercased()
         label.textColor = .white
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F16D72CD26F7846000263DB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D72CC26F7846000263DB0 /* AppDelegate.swift */; };
 		F16D72D626F7846300263DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16D72D526F7846300263DB0 /* Assets.xcassets */; };
-		F16D72D926F7846300263DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16D72D726F7846300263DB0 /* LaunchScreen.storyboard */; };
 		F16D72E426F7846300263DB0 /* LeBonCoinLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D72E326F7846300263DB0 /* LeBonCoinLiteTests.swift */; };
 		F16D72EF26F7846300263DB0 /* LeBonCoinLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D72EE26F7846300263DB0 /* LeBonCoinLiteUITests.swift */; };
 		F16D72FD26F7882100263DB0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16D72FC26F7882100263DB0 /* AppCoordinator.swift */; };
@@ -40,6 +39,7 @@
 		F176538826FCCB96007C3356 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538726FCCB96007C3356 /* Double+Extension.swift */; };
 		F176538A26FCE130007C3356 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538926FCE130007C3356 /* ImageCache.swift */; };
 		F196B76126FE051A005BAEF6 /* Persister.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176538526FC86D4007C3356 /* Persister.swift */; };
+		F196B76626FE0D6E005BAEF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F196B76826FE0D6E005BAEF6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		F16D72C926F7846000263DB0 /* LeBonCoinLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBonCoinLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16D72CC26F7846000263DB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16D72D526F7846300263DB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F16D72D826F7846300263DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F16D72DA26F7846300263DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F16D72DF26F7846300263DB0 /* LeBonCoinLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBonCoinLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16D72E326F7846300263DB0 /* LeBonCoinLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBonCoinLiteTests.swift; sourceTree = "<group>"; };
@@ -91,6 +90,8 @@
 		F176538526FC86D4007C3356 /* Persister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persister.swift; sourceTree = "<group>"; };
 		F176538726FCCB96007C3356 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		F176538926FCE130007C3356 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F196B76726FE0D6E005BAEF6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F196B76926FE0D70005BAEF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,9 +147,8 @@
 				F16D730526F8ABF500263DB0 /* Model */,
 				F16D730026F78D4B00263DB0 /* UI */,
 				F196B76026FDDEC0005BAEF6 /* Extensions */,
+				F196B76326FE0D2D005BAEF6 /* Resources */,
 				F16D72CC26F7846000263DB0 /* AppDelegate.swift */,
-				F16D72D526F7846300263DB0 /* Assets.xcassets */,
-				F16D72D726F7846300263DB0 /* LaunchScreen.storyboard */,
 				F16D72DA26F7846300263DB0 /* Info.plist */,
 			);
 			path = LeBonCoinLite;
@@ -233,6 +233,15 @@
 				F176538726FCCB96007C3356 /* Double+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F196B76326FE0D2D005BAEF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F16D72D526F7846300263DB0 /* Assets.xcassets */,
+				F196B76826FE0D6E005BAEF6 /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +329,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = F16D72C026F7846000263DB0;
 			productRefGroup = F16D72CA26F7846000263DB0 /* Products */;
@@ -338,7 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F16D72D926F7846300263DB0 /* LaunchScreen.storyboard in Resources */,
+				F196B76626FE0D6E005BAEF6 /* Localizable.strings in Resources */,
 				F16D731E26F9894500263DB0 /* categories.json in Resources */,
 				F16D72D626F7846300263DB0 /* Assets.xcassets in Resources */,
 				F16D731226F8DB4900263DB0 /* ads.json in Resources */,
@@ -428,12 +438,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F16D72D726F7846300263DB0 /* LaunchScreen.storyboard */ = {
+		F196B76826FE0D6E005BAEF6 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F16D72D826F7846300263DB0 /* Base */,
+				F196B76726FE0D6E005BAEF6 /* fr */,
+				F196B76926FE0D70005BAEF6 /* en */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -443,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -504,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

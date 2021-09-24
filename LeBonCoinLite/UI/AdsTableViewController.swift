@@ -52,8 +52,8 @@ class AdsTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             case .error:
-                let alertController = UIAlertController(title: "Error",
-                                                        message: "An error occured while fetching ads. Please try again later",
+                let alertController = UIAlertController(title: NSLocalizedString("error", comment: ""),
+                                                        message: NSLocalizedString("error.fetching", comment: ""),
                                                         preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
@@ -71,7 +71,7 @@ class AdsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Annonces"
+        self.title = NSLocalizedString("ads", comment: "")
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.register(AdListCell.self, forCellReuseIdentifier: cellId)
     }
@@ -105,7 +105,7 @@ class AdsTableViewController: UITableViewController {
                 }
             }
         case .noData:
-            cell.titleLabel.text = "Aucune annonce n'a encore été postée"
+            cell.titleLabel.text = NSLocalizedString("noAd", comment: "")
         }
 
         return cell
@@ -136,7 +136,10 @@ extension AdsTableViewController {
     func displayCategoriesFilter(category: Category? = nil) {
         let flexibleSpaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let categoryTitle: String = {
-            if let category = category { return category.name } else { return "Categories" }
+            if let category = category { return category.name }
+            else {
+                return NSLocalizedString("categories", comment: "")
+            }
         }()
         let categoriesItem = UIBarButtonItem(title: categoryTitle,
                                              style: category == nil ? .plain : .done,

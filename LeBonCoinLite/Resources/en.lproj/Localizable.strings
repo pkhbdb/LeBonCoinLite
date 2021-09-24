@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  LeBonCoinLite
+
+  Created by Alexandre Guzu on 24/09/2021.
+  
+*/
+
+"ads" = "Ads";
+"categories" = "Categories";
+"all" = "All";
+"urgent" = "Urgent";
+"noAd" = "No ad has been posted yet";
+
+// Errors
+"error" = "Error";
+"error.fetching" = "An error occured while fetching ads. Please try again later";

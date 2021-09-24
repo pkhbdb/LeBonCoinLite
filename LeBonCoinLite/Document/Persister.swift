@@ -23,6 +23,7 @@ class Persister {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(ads) {
             let defaults = UserDefaults.standard
+            defaults.removeObject(forKey: DataType.classifiedAd.rawValue)
             defaults.set(encoded, forKey: DataType.classifiedAd.rawValue)
         }
     }
@@ -44,6 +45,7 @@ class Persister {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(categories) {
             let defaults = UserDefaults.standard
+            defaults.removeObject(forKey: DataType.category.rawValue)
             defaults.set(encoded, forKey: DataType.category.rawValue)
         }
     }

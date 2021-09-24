@@ -21,6 +21,11 @@ class AdsPresenter {
         self.viewController = viewController
         self.document = document
 
+        let storedAds = try? document.persister.getAds()
+        let storedCategories = try? document.persister.getCategories()
+
+        self.viewController?.setAdsData(ads: storedAds ?? [], categories: storedCategories ?? [])
+
         fetchData()
     }
 

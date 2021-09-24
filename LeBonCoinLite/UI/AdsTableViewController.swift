@@ -44,7 +44,9 @@ class AdsTableViewController: UITableViewController {
                     }
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                    if !ads.isEmpty {
+                        self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                    }
                 }
             case .noData:
                 rows = [.noData]

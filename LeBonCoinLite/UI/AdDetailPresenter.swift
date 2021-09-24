@@ -18,7 +18,4 @@ class AdDetailPresenter {
         self.viewController = viewController
         self.document = document
     }
-
-
-
 }

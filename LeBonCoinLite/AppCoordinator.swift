@@ -24,7 +24,6 @@ class AppCoordinator: Coordinator {
         self.window = window
         self.document = Document()
         self.rootNavigationController = UINavigationController()
-        self.rootNavigationController.navigationBar.prefersLargeTitles = true
         self.window.rootViewController = self.rootNavigationController
     }
 
@@ -41,8 +40,12 @@ class AppCoordinator: Coordinator {
         self.window.makeKeyAndVisible()
     }
 
-    func showAdDetail(ad: ClassifiedAd) {
-        let adDetailViewController = AdDetailViewController(ad: ad)
+    func showAdDetail(ad: ClassifiedAd, category: Category?) {
+        let adDetailViewController = AdDetailViewController(ad: ad, category: category)
+        let adDetailPresenter = AdDetailPresenter(coordinator: self,
+                                                  viewController: adDetailViewController,
+                                                  document: document)
+        adDetailViewController.setPresenter(presenter: adDetailPresenter)
         self.rootNavigationController.pushViewController(adDetailViewController, animated: true)
     }
 

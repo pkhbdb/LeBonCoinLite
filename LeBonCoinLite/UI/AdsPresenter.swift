@@ -56,32 +56,9 @@ class AdsPresenter {
         }
     }
 
-//    func fetchAds() {
-//        document.fetchClassifiedAds { adsFetchingResult in
-//            switch adsFetchingResult {
-//            case .success(let ads):
-//                self.allAds = ads
-//                self.viewController?.setAds(ads: ads)
-//            case .failure(let error):
-//                self.viewController?.showFetchingError(error: error)
-//            }
-//        }
-//    }
-//
-//    func fetchCategories() {
-//        document.fetchCategories { categoriesFetchingResult in
-//            switch categoriesFetchingResult {
-//            case .success(let categories):
-//                self.allCategories = categories
-//                self.viewController?.displayCategoriesFilter()
-//            case .failure(let error):
-//                self.viewController?.showFetchingError(error: error)
-//            }
-//        }
-//    }
-
     func didSelect(ad: ClassifiedAd) {
-        coordinator.showAdDetail(ad: ad)
+        let category = allCategories.first(where: { $0.id == ad.categoryId })
+        coordinator.showAdDetail(ad: ad, category: category)
     }
 
     func didSelectCategoriesPicker() {
